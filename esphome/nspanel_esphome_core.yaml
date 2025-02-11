@@ -3096,7 +3096,6 @@ script:
             } else {
               set_component_visibility->execute("climate.slider_high", false);
               if (target_temp_low > -999) {  // Target temp low enabled
-                disp1->set_component_value("active_slider", 2);
                 snprintf(buffer, sizeof(buffer), (useDecimal) ? "%.1f°" : "%.0f°", target_temp_low);
                 disp1->set_component_text("target_low", adjustDecimalSeparator(buffer, id(mui_decimal_separator)).c_str());
                 disp1->set_component_value("slider_low", round(((10*target_temp_low) - temp_offset) / temp_step));
@@ -3107,7 +3106,6 @@ script:
                 set_component_visibility->execute("slider_low", false);
               }
               if (target_temp_high > -999) {  // Target temp high enabled
-                disp1->set_component_value("active_slider", 1);
                 snprintf(buffer, sizeof(buffer), (useDecimal) ? "%.1f°" : "%.0f°", target_temp_high);
                 disp1->set_component_text("target_high", adjustDecimalSeparator(buffer, id(mui_decimal_separator)).c_str());
                 disp1->set_component_value("slider_high", round(((10*target_temp_high) - temp_offset) / temp_step));
